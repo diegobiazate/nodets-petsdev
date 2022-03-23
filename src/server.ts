@@ -14,6 +14,9 @@ server.set('view engine', 'mustache');
 server.set('views', path.join(__dirname, 'views'));
 server.engine('mustache', mustache());
 
+//setando o caminho estático da pasta public
+server.use(express.static(path.join(__dirname, '../public')));
+
 //configurando rotas
 server.use(mainRoutes);
 
@@ -21,12 +24,6 @@ server.use(mainRoutes);
 server.use((req, res)=>{
     res.send('página não encontrada');
 });
-
-//setando o caminho estático da pasta public
-server.use(express.static(path.join(__dirname, '../public')));
-
-
-
 
 // configurando a porta na qual o server irá rodar -- pegando informação do arquivo .env
 server.listen(process.env.PORT);

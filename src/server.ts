@@ -22,7 +22,7 @@ server.use(mainRoutes);
 
 //rota para página 404
 server.use((req, res)=>{
-    res.send('página não encontrada');
+    res.render('pages/404');
 });
 
 // configurando a porta na qual o server irá rodar -- pegando informação do arquivo .env
